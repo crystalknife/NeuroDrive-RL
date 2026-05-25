@@ -1,82 +1,244 @@
-# NeuroDrive-RL
+# 🚗 NeuroDrive-RL
 
-Autonomous Driving using Reinforcement Learning and CARLA Simulator.
+### Autonomous Driving using Reinforcement Learning and CARLA Simulator
 
-## Overview
+NeuroDrive-RL is a Reinforcement Learning–based autonomous driving system developed using the CARLA Simulator and Proximal Policy Optimization (PPO).
 
-NeuroDrive-RL is a reinforcement learning–based autonomous driving system developed using the CARLA Simulator and Proximal Policy Optimization (PPO). The project focuses on autonomous lane following, vehicle navigation, and real-time driving control inside a simulated urban environment.
+The project focuses on:
 
-The system uses camera-based observations and reinforcement learning techniques to train an intelligent driving agent capable of steering, throttle control, and route navigation.
-
----
-
-## Features
-
-- PPO-based Reinforcement Learning agent
-- CARLA Simulator integration
 - Autonomous lane following
-- Real-time vehicle control
-- Dynamic route generation
-- Camera-based observation system
-- Training and testing modes
-- Vehicle steering smoothing
-- Reward-based policy optimization
+- Vehicle navigation
+- Real-time driving control
+- PPO-based policy learning
+- Camera-based perception
+- Autonomous vehicle simulation
 
 ---
 
-## Tech Stack
+# 📌 Project Overview
+
+This project demonstrates the integration of:
+
+- Reinforcement Learning
+- Autonomous Driving
+- Computer Vision
+- Vehicle Control Systems
+- Deep Learning
+- CARLA-based Simulation
+
+inside a realistic simulated urban environment.
+
+The autonomous agent learns steering and throttle control using PPO (Proximal Policy Optimization) while interacting with the CARLA simulator in real time.
+
+---
+
+# ✨ Features
+
+✅ PPO-based Reinforcement Learning agent  
+✅ CARLA Simulator integration  
+✅ Autonomous lane following  
+✅ Dynamic route generation  
+✅ Camera-based observation system  
+✅ Real-time vehicle control  
+✅ Vehicle steering smoothing  
+✅ Training and testing modes  
+✅ Reward-based policy optimization  
+✅ Spectator camera visualization  
+✅ Autonomous navigation in urban roads  
+
+---
+
+# 🛠 Tech Stack
 
 | Technology | Purpose |
 |---|---|
 | Python 3.7 | Core programming language |
-| CARLA 0.9.8 | Driving simulator |
-| PyTorch | Reinforcement learning |
+| CARLA 0.9.8 | Autonomous driving simulator |
+| PyTorch | Reinforcement learning framework |
 | PPO | Policy optimization algorithm |
-| NumPy | Numerical processing |
+| NumPy | Numerical computation |
 | OpenCV | Image processing |
-| Unreal Engine | Simulation rendering |
+| Unreal Engine | Rendering and physics engine |
+| Git & GitHub | Version control |
 
 ---
 
-## System Architecture
+# ⚙️ CARLA Version Compatibility
 
-1. CARLA generates the driving environment.
-2. Camera sensors capture road observations.
-3. PPO agent processes observations.
-4. Agent predicts steering and throttle actions.
-5. Vehicle controls are applied in simulation.
-6. Rewards are calculated based on driving behavior.
-7. PPO updates the driving policy.
+This project was developed and tested using:
+
+| Component | Version |
+|---|---|
+| CARLA Simulator | 0.9.8 |
+| Python | 3.7 |
+| Operating System | Windows 10/11 (64-bit) |
+
+⚠️ Using different versions of CARLA or Python may cause compatibility issues with the CARLA Python API.
 
 ---
 
-## Project Structure
+# 📥 Download CARLA Simulator
+
+Download CARLA 0.9.8 from the official release page:
+
+https://github.com/carla-simulator/carla/releases/tag/0.9.8
+
+---
+
+## After Downloading
+
+1. Extract the downloaded package
+2. Open:
+
+```bash
+WindowsNoEditor/
+```
+
+3. Run:
+
+```bash
+CarlaUE4.exe
+```
+
+---
+
+# 🧠 System Architecture
+
+```text
+CARLA Environment
+        ↓
+Camera Sensor Input
+        ↓
+Observation Processing
+        ↓
+PPO Reinforcement Learning Agent
+        ↓
+Steering & Throttle Prediction
+        ↓
+Vehicle Control Execution
+        ↓
+Reward Calculation
+        ↓
+Policy Optimization
+```
+
+---
+
+# 📂 Project Structure
 
 ```bash
 NeuroDrive-RL/
 │
 ├── autoencoder/
+│   └── encoder.py
+│
 ├── checkpoints/
+│   ├── latest.pth
+│   └── latest_encoder.pth
+│
 ├── networks/
 │   └── ppo/
+│       ├── agent.py
+│       └── ppo.py
+│
 ├── simulation/
+│   ├── connection.py
+│   ├── environment.py
+│   └── sensors.py
+│
 ├── assets/
+│   ├── carla_demo.png
+│   └── training_progress.png
+│
 ├── continuous_driver.py
 ├── parameters.py
-├── README.md
+└── README.md
 ```
 
 ---
 
-## Training
+# 🚀 Installation & Setup Guide
 
-Run CARLA:
+---
+
+## Step 1 — Clone Repository
+
+```bash
+git clone https://github.com/crystalknife/NeuroDrive-RL.git
+cd NeuroDrive-RL
+```
+
+---
+
+## Step 2 — Install Dependencies
+
+Install required Python libraries:
+
+```bash
+pip install torch numpy opencv-python pygame
+```
+
+---
+
+## Step 3 — Configure CARLA Python API
+
+Open terminal inside the project folder and add CARLA API paths:
+
+```bash
+export PYTHONPATH=$PYTHONPATH:D:/car/WindowsNoEditor/PythonAPI/carla/dist/carla-0.9.8-py3.7-win-amd64.egg
+```
+
+Optional additional path:
+
+```bash
+export PYTHONPATH=$PYTHONPATH:D:/car/WindowsNoEditor/PythonAPI/carla
+```
+
+---
+
+# 🎮 Starting CARLA Simulator
+
+## Option 1 — Recommended for Low/Medium GPU Systems
+
+Run CARLA without rendering for faster and more stable training:
 
 ```bash
 CarlaUE4.exe -RenderOffScreen -quality-level=Low
 ```
 
-Start training:
+✅ Recommended for:
+- Faster training
+- Lower GPU usage
+- Stable RL learning
+
+---
+
+## Option 2 — Recommended for Good GPU Systems
+
+Run CARLA with rendering enabled:
+
+```bash
+CarlaUE4.exe -quality-level=Low
+```
+
+✅ Recommended for:
+- Real-time visualization
+- Demonstrations
+- Watching autonomous driving behavior
+
+---
+
+## Option 3 — Lightweight Windowed Mode
+
+```bash
+CarlaUE4.exe -quality-level=Low -windowed -ResX=800 -ResY=600
+```
+
+---
+
+# 🏋️ Training the Model
+
+## Start Training
 
 ```bash
 python continuous_driver.py \
@@ -88,9 +250,31 @@ python continuous_driver.py \
 
 ---
 
-## Testing
+# 🎯 Difficulty Levels
 
-Run testing with rendering:
+| Difficulty | Description |
+|---|---|
+| 1 | Straight roads only |
+| 2 | Mild curves |
+| 3 | Moderate curves |
+| 4 | Complex navigation |
+| 5 | Hard navigation routes |
+
+---
+
+# 📌 Training Recommendations
+
+✅ Start with difficulty 1  
+✅ Train for 100–300 episodes initially  
+✅ Use RenderOffScreen mode for weak GPUs  
+✅ Use rendering mode for demonstrations  
+✅ GPU acceleration improves performance significantly  
+
+---
+
+# 🧪 Testing the Trained Model
+
+## Run Testing
 
 ```bash
 python continuous_driver.py \
@@ -102,7 +286,7 @@ python continuous_driver.py \
 
 ---
 
-## Results
+# 📈 Results
 
 The trained reinforcement learning agent successfully demonstrated:
 
@@ -110,35 +294,62 @@ The trained reinforcement learning agent successfully demonstrated:
 - Straight-road navigation
 - Basic curve handling
 - Reward optimization through PPO training
-- Stable vehicle control in CARLA simulation
+- Stable vehicle control
+- Dynamic route following
+- Real-time steering prediction
 
 ---
 
-## Screenshots
+# 📸 Screenshots
 
-### Autonomous Driving Demo
+## 🚘 Autonomous Driving Demo
 
 ![CARLA Demo](assets/carla_demo.png)
 
 ---
 
-### Training Progress
+## 📊 Training Progress
 
 ![Training Progress](assets/training_progress.png)
 
 ---
 
-## Future Improvements
+# ✅ Advantages
+
+- Safe autonomous driving experimentation
+- Realistic driving simulation
+- Supports Reinforcement Learning research
+- Real-time vehicle control
+- Modular architecture
+- Scalable for future autonomous driving systems
+
+---
+
+# ⚠️ Limitations
+
+- Requires moderate-to-high hardware resources
+- Performance depends on GPU capability
+- Limited traffic interaction
+- Simulation differs from real-world driving
+- Requires training time for stable behavior
+
+---
+
+# 🔮 Future Improvements
 
 - Traffic signal handling
 - Multi-vehicle navigation
 - Pedestrian detection
-- Advanced obstacle avoidance
+- Obstacle avoidance
+- Semantic segmentation
 - Real-world sensor integration
-- Deep RL performance optimization
+- Multi-camera support
+- Advanced Deep RL optimization
 
 ---
 
-## Author
+# 👨‍💻 Author
 
 Developed as a Reinforcement Learning and Autonomous Driving research project using CARLA Simulator and PPO.
+
+---
