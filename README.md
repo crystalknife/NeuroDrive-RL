@@ -104,23 +104,22 @@ CarlaUE4.exe
 
 # 🧠 System Architecture
 
-```text
-CARLA Environment
-        ↓
-Camera Sensor Input
-        ↓
-Observation Processing
-        ↓
-PPO Reinforcement Learning Agent
-        ↓
-Steering & Throttle Prediction
-        ↓
-Vehicle Control Execution
-        ↓
-Reward Calculation
-        ↓
-Policy Optimization
-```
+The following diagram illustrates the complete workflow of the NeuroDrive-RL autonomous driving system:
+
+![Architecture Diagram](assets/architecture_diagram.png)
+
+---
+
+## Architecture Workflow
+
+1. CARLA generates the simulated driving environment.
+2. Camera sensors capture real-time road observations.
+3. Observations are processed and passed to the PPO agent.
+4. The neural network predicts steering and throttle actions.
+5. Vehicle controls are applied inside CARLA.
+6. Rewards are calculated based on driving behavior.
+7. PPO continuously updates the driving policy for improved performance.
+
 
 ---
 
