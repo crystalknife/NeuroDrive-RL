@@ -333,6 +333,21 @@ The trained reinforcement learning agent successfully demonstrated:
 - Requires training time for stable behavior
 
 ---
+# 🎥 Training & Demonstration Videos
+
+Full PPO training sessions and autonomous driving demonstrations are available on YouTube:
+
+🔗 [NeuroDrive-RL Training Playlist](https://www.youtube.com/playlist?list=PL6aJqhgPNXeNGooHA03PgbWJ0vP2xuTUs)
+
+The playlist includes:
+
+- PPO training runs
+- Autonomous lane-following demonstrations
+- CARLA simulation testing
+- Real-time driving behavior
+- Reinforcement learning experiments
+- Training progression recordings
+---
 
 # 🔮 Future Improvements
 
